@@ -1,0 +1,40 @@
+// Place all the styles related to the BlogPosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// body
+// {
+//     background-color: magenta !important;
+//     color: white !important;
+// }
+
+body
+{
+    background-color: #648880;
+    background: linear-gradient(to right, #ffccff 19%, #99ccff 70%);
+    border: #648880;
+    border-style:ridge;
+    grid-template-columns: max-content;
+    width: 1400px;
+    height: 1100px;
+    padding-right: 10%;
+    padding-left: 3%;
+    padding-top: 1%;
+    align-content:normal;
+    box-sizing: border-box;
+    border: 3px solid rgb(208, 0, 255);
+  }
+
+  #helpers
+  {
+    font-size: medium;
+    font-family: Tahoma;
+    font-weight:500;
+  }
+
+  .grid
+  {
+    font-weight: bold;
+    font-stretch: ultra-expanded;
+    font-size: small;
+  }

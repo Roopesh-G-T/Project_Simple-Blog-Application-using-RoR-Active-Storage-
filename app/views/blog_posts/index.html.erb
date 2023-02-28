@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<head>
+<style> 
+html { 
+  background: url(/assets/gradient123.jpg) no-repeat center fixed; 
+  background-size: cover;
+}
+
+tbody { 
+  color: white; 
+}
+</style>
+
+</head>
+<div id="blogpost">
+<div id="example1">
+   <h1><u>Welcome to my Blog</u></h1>
+   <br>
+</div>
+
+<table class="table table-dark table-striped-rows">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+       <th>Author</th>
+        <th>Genre</th>
+      <th colspan="3">Form actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @blog_posts.each do |blog_post| %>
+      <tr>
+        <td><%= blog_post.title %></td>
+        <td><%= blog_post.body %></td>
+          <td><%= blog_post.author %></td>
+            <td><%= blog_post.genre %></td>
+        <td><%= link_to 'Show', blog_post %></td>
+        <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %></td>
+        <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </div>
+  </tbody>
+</table>
+
+<%= link_to 'New Blog Post', new_blog_post_path %>
+
+<br>
+<br>
+<br>
+
+  
+<div class="grid">
+<%= form_with url: "/search", method: :get do |form| %>
+ <%= form.label :query, "Search for blog posts:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+</div>
+
+ <div id="helpers">
+
+ <br>
+<p><u><b>Fill the below questionnaire to help us know you better:</u></b></p>
+ <p>1. Choose a number between 1(worst) & 10 (best) to give your overall ratings:</p>
+<%= form.number_field :price, in: 1.0..10.0, step: 1 %>
+<br>
+ <p>2. Choose a range betwee 1 and 100 to rate your overall experience about the content quality of our Blog posts:</p>
+<%= form.range_field :discount, in: 1..100 %>
+<br>
+<p>3. What is date of birth?</p>
+<%= form.date_field :born_on %>
+<br>
+<p>4. Enter your birth time (approx.):</p>
+<%= form.time_field :started_at %>
+
+<br>
+<p>5. Pick your favourite colour:</p>
+<%= form.color_field :favorite_color %>
+
+<br>
+<p>6. Enter your graduaton month/year:</p>
+<%= form.month_field :birthday_month %>
+<br>
+<br>
+ <p><b>Please leave your comments below:</b></p>
+<%= form.text_area :message, size: "100x10" %>
+
+<% end %>
+</div>
+</div>
+</div>
